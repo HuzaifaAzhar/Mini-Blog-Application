@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Blog } from '../types';
+import type { Blog } from '../types.ts';
 
 const props = defineProps<{
   blog: Blog;

@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { reactive, watch } from 'vue';
-import type { Blog } from '../types';
+import type { Blog } from '../types.ts';
 
 const props = defineProps<{
   modelValue?: Blog | null;

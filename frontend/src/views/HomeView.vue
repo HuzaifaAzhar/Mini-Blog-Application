@@ -11,7 +11,7 @@
 import { onMounted, ref } from 'vue';
 import BlogCard from '../components/BlogCard.vue';
 import api from '../api';
-import type { Blog } from '../types';
+import type { Blog } from '../types.ts';
 
 const posts = ref<Blog[]>([]);
 

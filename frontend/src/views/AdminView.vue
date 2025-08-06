@@ -58,7 +58,8 @@
 import { ref, onMounted } from 'vue';
 import BlogForm from '../components/BlogForm.vue';
 import api from '../api';
-import type { Blog } from '../types';
+import type { Blog } from '../types.ts';
+import { useRouter } from 'vue-router';
 
 const posts = ref<Blog[]>([]);
 const selectedPost = ref<Blog | null>(null);
