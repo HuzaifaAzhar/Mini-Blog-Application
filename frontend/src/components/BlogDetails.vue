@@ -11,7 +11,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import api from '../api';
-import type { Blog } from '../types';
+import type { Blog } from '../types.ts';
 
 const route = useRoute();
 const blog = ref<Blog>({} as Blog);

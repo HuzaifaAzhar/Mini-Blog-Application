@@ -27,7 +27,7 @@ async function login() {
       password: password.value,
     });
     localStorage.setItem('token', res.data.access_token);
-    router.push('/admin');
+    window.location.href = '/admin';
   } catch (err) {
     error.value = 'Invalid username or password';
   }
