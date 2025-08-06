@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, watch, defineProps, defineEmits } from 'vue';
+import { reactive, watch } from 'vue';
 import type { Blog } from '../types';
 
 const props = defineProps<{
