@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { BlogModule } from './blog/blog.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Blog } from './blog/blog.entity';
+import { JwtModule } from '@nestjs/jwt';
+import { AuthModule } from './auth/login/auth.module';
 
 @Module({
   imports: [
@@ -14,6 +16,7 @@ import { Blog } from './blog/blog.entity';
       synchronize: true,
     }),
     BlogModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
