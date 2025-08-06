@@ -9,7 +9,6 @@
 
 <script setup lang="ts">
 import type { Blog } from '../types';
-import { defineProps } from 'vue';
 
 const props = defineProps<{
   blog: Blog;
