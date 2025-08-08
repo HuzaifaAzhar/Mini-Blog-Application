@@ -101,6 +101,7 @@ Developed by **Huzaifa Azhar Tarar**
 ---
 ##📸 Screenshots
 <img width="1266" height="712" alt="image" src="https://github.com/user-attachments/assets/be0c6533-3002-4c99-882f-5b972605dab4" />
+<img width="1280" height="712" alt="image" src="https://github.com/user-attachments/assets/0217999d-d734-4ac8-be10-e4d719e91afa" />
 <img width="1267" height="710" alt="image" src="https://github.com/user-attachments/assets/6acebe86-f210-46b3-93e4-86fc8d904648" />
 <img width="1262" height="710" alt="image" src="https://github.com/user-attachments/assets/92958eaa-2089-4598-a43c-e1a89b906690" />
 <img width="2526" height="1421" alt="image" src="https://github.com/user-attachments/assets/cee2d95b-ca95-423f-91dd-f69c35a93dd8" />
