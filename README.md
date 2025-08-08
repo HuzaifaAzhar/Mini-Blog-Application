@@ -106,7 +106,5 @@ Developed by **Huzaifa Azhar Tarar**
 <img width="1262" height="710" alt="image" src="https://github.com/user-attachments/assets/92958eaa-2089-4598-a43c-e1a89b906690" />
 <img width="2526" height="1421" alt="image" src="https://github.com/user-attachments/assets/cee2d95b-ca95-423f-91dd-f69c35a93dd8" />
 <img width="1267" height="712" alt="image" src="https://github.com/user-attachments/assets/ae5f7a4e-4afd-44c8-916d-ac1b4648bc6d" />
----
-
 
 
