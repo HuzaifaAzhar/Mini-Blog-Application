@@ -2,7 +2,7 @@
   <div class="p-8 max-w-7xl mx-auto">
     <h1 class="text-4xl font-extrabold text-white mb-8 text-center">📚 Latest Posts</h1>
 
-    <!-- Search + Filter Controls -->
+    <!-- Search + Filter + Sort Controls -->
     <div
       class="flex flex-col sm:flex-row items-center gap-4 mb-8 p-4 rounded-2xl bg-white/10 backdrop-blur-lg shadow-lg"
     >
@@ -15,23 +15,33 @@
       />
 
       <!-- Filter by Author -->
-     <select
-  v-model="selectedAuthor"
-  class="bg-white/10 backdrop-blur-md border border-white/20 
-         text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 
-         focus:ring-white/30"
->
-  <option value="" class="bg-gray-900 text-white">All Authors</option>
-  <option
-    v-for="author in authors"
-    :key="author"
-    :value="author"
-    class="bg-gray-900 text-white"
-  >
-    {{ author }}
-  </option>
-</select>
+      <select
+        v-model="selectedAuthor"
+        class="bg-white/10 backdrop-blur-md border border-white/20 
+               text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 
+               focus:ring-white/30"
+      >
+        <option value="" class="bg-gray-900 text-white">All Authors</option>
+        <option
+          v-for="author in authors"
+          :key="author"
+          :value="author"
+          class="bg-gray-900 text-white"
+        >
+          {{ author }}
+        </option>
+      </select>
 
+      <!-- Sort by Date -->
+      <select
+        v-model="sortOrder"
+        class="bg-white/10 backdrop-blur-md border border-white/20 
+               text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 
+               focus:ring-white/30"
+      >
+        <option value="desc" class="bg-gray-900 text-white">Newest First</option>
+        <option value="asc" class="bg-gray-900 text-white">Oldest First</option>
+      </select>
     </div>
 
     <!-- Posts Grid -->
@@ -73,6 +83,7 @@ import type { Blog } from '../types.ts';
 const posts = ref<Blog[]>([]);
 const searchQuery = ref('');
 const selectedAuthor = ref('');
+const sortOrder = ref<'asc' | 'desc'>('desc');
 const currentPage = ref(1);
 const pageSize = 6;
 
@@ -83,6 +94,7 @@ const authors = computed(() =>
 const filteredPosts = computed(() => {
   let list = posts.value;
 
+  // Search
   if (searchQuery.value.trim()) {
     const q = searchQuery.value.toLowerCase();
     list = list.filter(
@@ -92,9 +104,17 @@ const filteredPosts = computed(() => {
     );
   }
 
+  // Filter by author
   if (selectedAuthor.value) {
     list = list.filter((p) => p.author === selectedAuthor.value);
   }
+
+  // Sort by date
+  list = [...list].sort((a, b) => {
+    const dateA = new Date(a.createdAt).getTime();
+    const dateB = new Date(b.createdAt).getTime();
+    return sortOrder.value === 'asc' ? dateA - dateB : dateB - dateA;
+  });
 
   return list;
 });
