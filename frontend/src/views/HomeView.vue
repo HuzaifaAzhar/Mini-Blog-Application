@@ -115,7 +115,7 @@ const filteredPosts = computed(() => {
     const dateB = new Date(b.createdAt).getTime();
     return sortOrder.value === 'asc' ? dateA - dateB : dateB - dateA;
   });
-
+  currentPage.value = 1;
   return list;
 });
 
