@@ -99,7 +99,7 @@ Frontend will run at http://localhost:5173 (Vite default)
 ## 👨‍💻 Author
 Developed by **Huzaifa Azhar Tarar**
 ---
-##📸 Screenshots
+## 📸 Screenshots
 <img width="1266" height="712" alt="image" src="https://github.com/user-attachments/assets/be0c6533-3002-4c99-882f-5b972605dab4" />
 <img width="1280" height="712" alt="image" src="https://github.com/user-attachments/assets/0217999d-d734-4ac8-be10-e4d719e91afa" />
 <img width="1267" height="710" alt="image" src="https://github.com/user-attachments/assets/6acebe86-f210-46b3-93e4-86fc8d904648" />
