@@ -57,6 +57,16 @@
           >
             ✖
           </button>
+          <div v-if="errorMessages.length" class="mb-4 space-y-1">
+  <div
+    v-for="(msg, i) in errorMessages"
+    :key="i"
+    class="text-red-200 bg-red-500/20 px-3 py-2 rounded-lg text-sm"
+  >
+    {{ msg }}
+  </div>
+</div>
+
           <BlogForm
             :modelValue="selectedPost"
             :isEdit="!!selectedPost"
@@ -77,6 +87,7 @@ import type { Blog } from '../types.ts';
 const posts = ref<Blog[]>([]);
 const selectedPost = ref<Blog | null>(null);
 const showModal = ref(false);
+const errorMessages = ref<string[]>([]);
 
 async function loadPosts() {
   const res = await api.get('/posts');
@@ -104,14 +115,26 @@ async function deletePost(id: number) {
 }
 
 async function handleSubmit(data: Partial<Blog>) {
-  if (selectedPost.value) {
-    await api.put(`/posts/${selectedPost.value.id}`, data);
-  } else {
-    await api.post('/posts', data);
+  errorMessages.value = []; 
+  try {
+    if (selectedPost.value) {
+      await api.put(`/posts/${selectedPost.value.id}`, data);
+    } else {
+      await api.post('/posts', data);
+    }
+    closeModal();
+    await loadPosts();
+  } catch (err: any) {
+    if (err.response?.data?.message) {
+      errorMessages.value = Array.isArray(err.response.data.message)
+        ? err.response.data.message
+        : [err.response.data.message];
+    } else {
+      errorMessages.value = ['An unexpected error occurred.'];
+    }
   }
-  closeModal();
-  await loadPosts();
 }
+
 
 onMounted(loadPosts);
 </script>
