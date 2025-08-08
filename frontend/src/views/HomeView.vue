@@ -1,7 +1,10 @@
 <template>
-  <div class="p-6 max-w-5xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6">Latest Posts</h1>
-    <div class="grid gap-4">
+  <div class="p-8 max-w-7xl mx-auto">
+    <h1 class="text-4xl font-extrabold text-white mb-8 text-center">📚 Latest Posts</h1>
+    <div v-if="!posts.length" class="text-center text-gray-500">
+      No posts yet. Start by creating one!
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <BlogCard v-for="post in posts" :key="post.id" :blog="post" />
     </div>
   </div>
